@@ -105,7 +105,7 @@ r <- lapply(1:10,function(i){
       # Build random forest
       rf <- randomForest(sub,lab,ntree=10,mtry=mtry)
       return(rf)
-    },mc.cores=mc.cores()-2)
+    },mc.cores=detectCores()-2)
     rf <- do.call(randomForest::combine,s)
     
     # Predict on hold-out set
